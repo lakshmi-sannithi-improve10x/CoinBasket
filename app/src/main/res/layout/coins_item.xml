@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="@{String.valueOf(coin.rank)}"
+            android:text="@{String.valueOf(coin.rank + `.`)}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="rank" />
@@ -30,7 +30,7 @@
             android:id="@+id/name_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:text="@{coin.name}"
             app:layout_constraintStart_toEndOf="@+id/rank_txt"
             app:layout_constraintTop_toTopOf="parent"
