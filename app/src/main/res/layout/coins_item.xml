@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="@{coin.name}"
+            android:text="@{coin.name+coin.symbol}"
             app:layout_constraintStart_toEndOf="@+id/rank_txt"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="name" />
@@ -43,6 +43,7 @@
             android:layout_marginRight="32dp"
             android:text="@{String.valueOf(showActive ? `active`: `inactive`)}"
             android:textColor="#1AB520"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="active" />
