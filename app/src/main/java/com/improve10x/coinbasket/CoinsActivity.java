@@ -3,6 +3,7 @@ package com.improve10x.coinbasket;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -18,7 +19,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CoinsActivity extends AppCompatActivity {
+public class CoinsActivity extends AppCompatActivity implements OnItemActionListener {
     private ActivityCoinsBinding binding;
     private List<Coin> coins = new ArrayList<>();
     private CoinsAdapter adapter;
@@ -60,5 +61,13 @@ public class CoinsActivity extends AppCompatActivity {
         adapter = new CoinsAdapter();
         adapter.setCoins(coins);
         adapter.setShowActive(true);
+        adapter.setActionListener(this);
+    }
+
+    @Override
+    public void onClicked(String id) {
+        Intent intent = new Intent(this,CoinDetailsActivity.class);
+        intent.putExtra("id",id);
+        startActivity(intent);
     }
 }

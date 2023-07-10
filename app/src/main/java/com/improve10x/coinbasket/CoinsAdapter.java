@@ -14,6 +14,11 @@ import java.util.List;
 public class CoinsAdapter extends RecyclerView.Adapter<CoinViewHolder> {
     private List<Coin> coins;
     private Boolean showActive = false;
+    private OnItemActionListener actionListener;
+
+    public void setActionListener(OnItemActionListener actionListener) {
+        this.actionListener = actionListener;
+    }
 
     public void setShowActive(Boolean showActive) {
         this.showActive = showActive;
@@ -38,6 +43,9 @@ public class CoinsAdapter extends RecyclerView.Adapter<CoinViewHolder> {
       Coin coin = coins.get(position);
       holder.binding.setCoin(coin);
       holder.binding.setShowActive(true);
+      holder.binding.nameTxt.setOnClickListener(view -> {
+          actionListener.onClicked(coin.getId());
+      });
     }
 
     @Override
